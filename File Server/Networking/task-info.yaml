@@ -83,5 +83,8 @@ files:
       }
     learner_created: false
 feedback_link: https://hyperskill.org/learn/step/5426#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: Execution failed
+  time: "Wed, 06 Dec 2023 19:16:04 UTC"
 record: -1
