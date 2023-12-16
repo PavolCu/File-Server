@@ -1,0 +1,50 @@
+type: code
+files:
+  - name: src/Main.java
+    visible: true
+    highlight_level: NONE
+    text: |-
+      class Counter {
+          public static int count2DShapes(Shape[] shapes) {
+              return 0;
+          }
+      }
+      
+      // Don't change the code below
+      
+      class Shape {
+      }
+      
+      class Shape2D extends Shape {
+      }
+      
+      class Shape3D extends Shape {
+      }
+      
+      
+      class Circle extends Shape2D {
+      }
+      
+      class Shape2DSub1 extends Shape2D {
+      }
+      
+      class Shape2DSub2 extends Shape2D {
+      }
+      
+      
+      class Cube extends Shape3D {
+      }
+      
+      class Shape3DSub1 extends Shape3D {
+      }
+      
+      class Shape3DSub2 extends Shape3D {
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/3086#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 16 Dec 2023 07:06:39 UTC"
+record: -1
+submission_language: java17

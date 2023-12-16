@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: Customer.class.isInstance(customer)
+  - text: Person.class.isInstance(customer)
+  - text: Employee.class.isInstance(person)
+  - text: customer.getClass() == Employee.class
+  - text: customer.getClass() == Customer.class
+files:
+  - name: src/Task.java
+    visible: true
+    text: |
+      // You can experiment here, it won’t be checked
+      
+      public class Task {
+        public static void main(String[] args) {
+          // put your code here
+        }
+      }
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/3068#comment
+status: Solved
+record: -1
+local_check: false
