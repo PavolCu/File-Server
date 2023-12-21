@@ -4,3 +4,6 @@ content:
   - The List interface
   - Comparator
   - Threads as objects
+  - Anonymous class
+  - Lambda expressions
+  - Choosing the right collection

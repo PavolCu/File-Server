@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Runtime type checking/Pattern matching with the logical OR operator/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Runtime type checking/Pattern matching with the logical OR operator/test" />
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Runtime_type_checking-Pattern_matching_with_the_logical_OR_operator.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

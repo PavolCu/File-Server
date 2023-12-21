@@ -7,7 +7,7 @@
         <option name="delegatedBuild" value="false" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="#JAVA_INTERNAL" />
+        <option name="gradleJvm" value="openjdk-20" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -18,6 +18,24 @@
             <option value="$PROJECT_DIR$/File Server/task/build/reports/tests" />
             <option value="$PROJECT_DIR$/File Server/task/build/test-results" />
             <option value="$PROJECT_DIR$/File Server/task/build/tmp" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/An anonymous class with three methods" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Capture variables" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Exploring Java's Anonymous Classes" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Find a correct syntax" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Implement Runnable" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Single method" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/Tricky Java  Final in Anonymous Classes" />
+            <option value="$PROJECT_DIR$/Topics/Anonymous class/What about context" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/A proper collection to avoid duplicates" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/A proper index-based collection" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/A proper sorted collection without duplicates" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/An unsolvable problem" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/Even numbers go first" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/General-purpose implementations" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/Removing duplicates and sorting" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Choosing the right collection/War and Peace" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Comparator vs Comparable" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Comparing numbers" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Comparing values" />
@@ -26,6 +44,14 @@
             <option value="$PROJECT_DIR$/Topics/Comparator/Reverse sorting" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Sort users" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Apply function to all elements" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Expressions" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Higher-order functions" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Max of two integers" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Next even number" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Parts of code" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Statements" />
+            <option value="$PROJECT_DIR$/Topics/Lambda expressions/Theory" />
             <option value="$PROJECT_DIR$/Topics/Runtime type checking/Counting 2D shapes" />
             <option value="$PROJECT_DIR$/Topics/Runtime type checking/File classes" />
             <option value="$PROJECT_DIR$/Topics/Runtime type checking/File equality" />
