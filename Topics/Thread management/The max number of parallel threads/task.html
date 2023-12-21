@@ -1,0 +1,27 @@
+<h2>The max number of parallel threads</h2>
+<div class="step-text">
+<p>What is the maximum number of threads that can work concurrently in the program below?</p>
+<p><code class="language-java">SlackerThread</code> is a class representing a thread that sleeps a random number of seconds after the start.</p>
+<p><b>Tip:</b>  Don't forget about the main thread. </p>
+<pre><code class="language-java">public class Main {
+    
+    public static void main(String args[]) throws InterruptedException {
+        Thread t1 = new SlackerThread();
+        Thread t2 = new SlackerThread();
+        
+        t1.start();
+        t2.start();
+        
+        t2.join();
+        
+        Thread t3 = new SlackerThread();
+        Thread t4 = new SlackerThread();
+        
+        t3.start();
+        t4.start();
+        
+        t3.join();
+        t4.join();
+    }
+}</code></pre>
+</div>
