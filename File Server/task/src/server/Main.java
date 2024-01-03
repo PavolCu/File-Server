@@ -8,6 +8,8 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
+        Server server = new Server("127.0.0.1",23456);
+        server.start();
         Set<String> files = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
 
