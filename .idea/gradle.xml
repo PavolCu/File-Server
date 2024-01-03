@@ -7,7 +7,8 @@
         <option name="delegatedBuild" value="false" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="openjdk-20" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.3/libexec" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -44,6 +45,13 @@
             <option value="$PROJECT_DIR$/Topics/Comparator/Reverse sorting" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Sort users" />
             <option value="$PROJECT_DIR$/Topics/Comparator/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Message notifier as a thread" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Possible order of the output strings" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Statements" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Statements about starting threads" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/When will a thread start performing a task" />
+            <option value="$PROJECT_DIR$/Topics/Custom threads/Writing a thread for printing numbers" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Apply function to all elements" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Expressions" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Higher-order functions" />
@@ -85,6 +93,12 @@
             <option value="$PROJECT_DIR$/Topics/The List interface/Split a list into sublists" />
             <option value="$PROJECT_DIR$/Topics/The List interface/The longest string in the list" />
             <option value="$PROJECT_DIR$/Topics/The List interface/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/Calculate the number of distinct characters" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/Join" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/Ordering the execution of threads" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/Sleep" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Thread management/VeganPizza" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Counting threads" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Getting a current thread" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Getting current thread info" />

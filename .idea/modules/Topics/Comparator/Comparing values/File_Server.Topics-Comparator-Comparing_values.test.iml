@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Comparator/Comparing values/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Comparator/Comparing values/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Comparator-Comparing_values.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

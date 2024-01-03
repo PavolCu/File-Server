@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Choosing the right collection/A proper sorted collection without duplicates/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Choosing the right collection/A proper sorted collection without duplicates/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Choosing_the_right_collection-A_proper_sorted_collection_without_duplicates.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

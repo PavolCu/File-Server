@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Threads as objects/Getting a current thread/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Threads as objects/Getting a current thread/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Threads_as_objects-Getting_a_current_thread.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

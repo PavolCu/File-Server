@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/The List interface/Split a list into sublists/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/The List interface/Split a list into sublists/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-The_List_interface-Split_a_list_into_sublists.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

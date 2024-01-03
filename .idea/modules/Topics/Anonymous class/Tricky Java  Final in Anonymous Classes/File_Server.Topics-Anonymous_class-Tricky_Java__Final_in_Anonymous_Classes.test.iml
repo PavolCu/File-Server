@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Anonymous class/Tricky Java  Final in Anonymous Classes/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Anonymous class/Tricky Java  Final in Anonymous Classes/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Anonymous_class-Tricky_Java__Final_in_Anonymous_Classes.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />
