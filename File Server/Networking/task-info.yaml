@@ -85,9 +85,6 @@ files:
   - name: src/server/Server.java
     visible: true
     learner_created: true
-  - name: src/server/client/Client.java
-    visible: true
-    learner_created: true
   - name: src/Client/Client.java
     visible: true
     learner_created: true

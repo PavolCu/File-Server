@@ -22,7 +22,7 @@ public class Client {
 
             System.out.println("Client started!");
 
-            String message = "Give me everything you have";
+            String message = "Give me everything you have!";
             output.writeUTF(message);
             System.out.println("Sent: " + message);
 
