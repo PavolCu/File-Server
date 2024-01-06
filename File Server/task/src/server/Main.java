@@ -8,9 +8,12 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
+        //Create a  new server and start it
         Server server = new Server("127.0.0.1",23456);
         server.start();
+        //create a set to store the file names
         Set<String> files = new HashSet<>();
+        //Create a scanner to read the user input
         Scanner scanner = new Scanner(System.in);
 
         label:
