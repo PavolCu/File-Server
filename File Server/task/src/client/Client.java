@@ -9,9 +9,7 @@ import java.net.Socket;
 public class Client {
     private String address;
     private int port;
-    private Socket socket;
-    private DataInputStream input;
-    private DataOutputStream output;
+    private Socket clientSocket;
 
     public Client(String address, int port) {
         this.address = address;
@@ -20,9 +18,9 @@ public class Client {
 
     public void start() {
         try {
-            socket = new Socket(InetAddress.getByName(address), port);
-            input = new DataInputStream(socket.getInputStream());
-            output = new DataOutputStream(socket.getOutputStream());
+            clientSocket = new Socket(InetAddress.getByName(address), port);
+            DataInputStream input = new DataInputStream(clientSocket.getInputStream());
+            DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
             System.out.println("Client started!");
 
@@ -39,6 +37,9 @@ public class Client {
 
     public String sendRequest(String request) {
         try {
+            DataInputStream input = new DataInputStream(clientSocket.getInputStream());
+            DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
+
             output.writeUTF(request);
             output.flush();
             return input.readUTF();
@@ -50,9 +51,16 @@ public class Client {
 
     public void stop() {
         try {
-            socket.close();
+            if (clientSocket != null && !clientSocket.isClosed()) {
+                clientSocket.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void sendExitCommand() {
+        sendRequest("exit");
+        stop();
     }
 }
