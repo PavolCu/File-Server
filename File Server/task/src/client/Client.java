@@ -5,18 +5,20 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class Client {
     private String address;
     private int port;
     private Socket clientSocket;
 
+
     public Client(String address, int port) {
         this.address = address;
         this.port = port;
     }
 
-    public void start() {
+    public void start() throws SocketException {
         try {
             clientSocket = new Socket(InetAddress.getByName(address), port);
             DataInputStream input = new DataInputStream(clientSocket.getInputStream());
@@ -35,7 +37,7 @@ public class Client {
         }
     }
 
-    public String sendRequest(String request) {
+    public String sendRequest(String request) throws SocketException {
         try {
             DataInputStream input = new DataInputStream(clientSocket.getInputStream());
             DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
@@ -60,7 +62,12 @@ public class Client {
     }
 
     public void sendExitCommand() {
-        sendRequest("exit");
-        stop();
+        try {
+            DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
+            output.writeUTF("exit");
+            output.flush();
+        } catch (Exception e) {
+            System.out.println("Error sending exit command: " + e.getMessage());
+        }
     }
 }

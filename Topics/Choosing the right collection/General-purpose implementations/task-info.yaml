@@ -1,12 +1,12 @@
 type: choice
 is_multiple_choice: true
 options:
-  - text: ArrayDeque
-  - text: TreeSet
-  - text: LinkedList
-  - text: HashSet
   - text: ArrayList
+  - text: LinkedList
+  - text: TreeSet
+  - text: ArrayDeque
   - text: LinkedHashSet
+  - text: HashSet
 files:
   - name: src/Task.java
     visible: true
