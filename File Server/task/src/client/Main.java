@@ -1,5 +1,6 @@
 package client;
 
+import java.io.IOException;
 import java.net.SocketException;
 import java.util.Scanner;
 
@@ -25,11 +26,6 @@ public class Main {
                 String fileName = scanner.nextLine();
 
                 String fileContent = "";
-                if ("2".equals(action)) {
-                    System.out.println("Enter file content:");
-                    fileContent = scanner.nextLine();
-                }
-
                 String request;
                 String response;
 
@@ -37,7 +33,7 @@ public class Main {
                     case "1":
                         request = "GET " + fileName;
                         System.out.println("The request was sent.");
-                        response = client.sendRequest(request);
+                        response = client.sendRequest(request, " ");
                         if (response.startsWith("200")) {
                             System.out.println("The content of the file is: " + response.substring(4));
                         } else {
@@ -45,21 +41,23 @@ public class Main {
                         }
                         continue;
                     case "2":
+                        System.out.println("Enter file content:");
+                        fileContent = scanner.nextLine();
                         request = "PUT " + fileName + " " + fileContent;
                         System.out.println("The request was sent.");
-                        response = client.sendRequest(request);
+                        response = client.sendRequest(request, fileContent);
                         if (response == null) {
                             System.out.println("Failed to get a response from the server.");
                         } else if (response.startsWith("200")) {
                             System.out.println("The response says that the file was created!");
-                        } else {
+                        } else if (response.startsWith("403")) {
                             System.out.println("The response says that creating the file was forbidden!");
                         }
                         continue;
                     case "3":
                         request = "DELETE " + fileName;
                         System.out.println("The request was sent.");
-                        response = client.sendRequest(request);
+                        response = client.sendRequest(request, "");
                         if (response.equals("200")) {
                             System.out.println("The response says that the file was successfully deleted!");
                         } else {
@@ -70,8 +68,8 @@ public class Main {
                         break;
                 }
             }
-        } catch (SocketException e) {
-            System.out.println("A network error occurred: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Failed to start the client: " + e.getMessage());
             e.printStackTrace();
         }
     }

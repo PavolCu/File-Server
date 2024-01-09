@@ -83,36 +83,37 @@ public class Server {
         String[] parts = request.split(" ", 3);
         String command = parts[0];
 
-        String fileName = parts[1];
-        Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
+        if ("exit".equals(command)) {
+            sendResponse(output, "200");
+            stop();
+            System.exit(0);
+        } else {
+            String fileName = parts[1];
+            Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
 
-        switch (command) {
-            case "GET":
-                if (Files.exists(filePath)) {
-                    sendResponse(output, "200 " + new String(Files.readAllBytes(filePath)));
-                } else {
-                    sendResponse(output, "404");
-                }
-                break;
-            case "PUT":
-                Files.write(filePath, parts[2].getBytes());
-                sendResponse(output, "200");
-                break;
-            case "DELETE":
-                if (Files.exists(filePath)) {
-                    Files.delete(filePath);
+            switch (command) {
+                case "GET":
+                    if (Files.exists(filePath)) {
+                        sendResponse(output, "200 " + new String(Files.readAllBytes(filePath)));
+                    } else {
+                        sendResponse(output, "404");
+                    }
+                    break;
+                case "PUT":
+                    Files.write(filePath, parts[2].getBytes());
                     sendResponse(output, "200");
-                } else {
-                    sendResponse(output, "404");
-                }
-                break;
-            case "exit":
-                stop();
-                sendResponse(output, "200");
-                running = false;
-                break;
-            default:
-                sendResponse(output, "400");
+                    break;
+                case "DELETE":
+                    if (Files.exists(filePath)) {
+                        Files.delete(filePath);
+                        sendResponse(output, "200");
+                    } else {
+                        sendResponse(output, "404");
+                    }
+                    break;
+                default:
+                    sendResponse(output, "400");
+            }
         }
     }
 
@@ -131,6 +132,4 @@ public class Server {
             e.printStackTrace();
         }
     }
-
-
 }

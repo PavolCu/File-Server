@@ -3,6 +3,7 @@ package client;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
@@ -32,17 +33,22 @@ public class Client {
 
             String received = (input.readUTF());
             System.out.println("Received: " + received);
+        } catch (ConnectException e) {
+            System.out.println("Failed to connect to the server: " + e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String sendRequest(String request) throws SocketException {
+    public String sendRequest(String request, String fileContent) throws SocketException {
+        if (clientSocket == null || clientSocket.isClosed()) {
+            throw new SocketException("Client socket is not been initialized.");
+        }
         try {
             DataInputStream input = new DataInputStream(clientSocket.getInputStream());
             DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
-            output.writeUTF(request);
+            output.writeUTF(request + " " + fileContent);
             output.flush();
             return input.readUTF();
         } catch (IOException e) {
@@ -61,13 +67,12 @@ public class Client {
         }
     }
 
-    public void sendExitCommand() {
-        try {
-            DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
-            output.writeUTF("exit");
-            output.flush();
-        } catch (Exception e) {
-            System.out.println("Error sending exit command: " + e.getMessage());
+    public void sendExitCommand() throws SocketException {
+        if (clientSocket != null && !clientSocket.isClosed()) {
+            sendRequest("exit", " ");
+            stop();
+        } else {
+            throw new SocketException("Client socket has not been initialized.");
         }
     }
 }
