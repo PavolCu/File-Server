@@ -3,45 +3,33 @@ package server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Server {
-    private String address;
-    private int port;
     private ServerSocket serverSocket;
     private volatile boolean running;
+    private ServerLogic serverLogic;  // Add this line
 
-    public Server(String address, int port) {
-        this.address = address;
-        this.port = port;
+    public Server(int port) {
+        try {
+            serverSocket = new ServerSocket(port);
+            serverLogic = new ServerLogic("127.0.0.1", port );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void start() {
         running = true;
-        try {
-            serverSocket = new ServerSocket(port, 50, InetAddress.getByName(address));
-            System.out.println("Server started!");
-            listen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            stop();
-        }
+        new Thread(this::runServer).start();
     }
 
-    public void listen() {
+    private void runServer() {
         while (running) {
             try {
-                Socket socket = serverSocket.accept();
-                if (!running) {
-                    break;
-                }
-                new Thread(() -> handleClient(socket)).start();
+                Socket clientSocket = serverSocket.accept();
+                handleClient(clientSocket);
             } catch (IOException e) {
                 if (running) {
                     e.printStackTrace();
@@ -50,9 +38,9 @@ public class Server {
         }
     }
 
-    private void handleClient(Socket socket) {
-        try (DataInputStream input = new DataInputStream(socket.getInputStream());
-             DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
+    private void handleClient(Socket clientSocket) {
+        try (DataInputStream input = new DataInputStream(clientSocket.getInputStream());
+             DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream())) {
 
             while (true) {
                 String receivedMessage = input.readUTF();
@@ -60,74 +48,27 @@ public class Server {
 
                 if ("exit".equals(receivedMessage)) {
                     System.out.println("Exit command received, shutting down server...");
-                    socket.close();
-                    serverSocket.close();
-                    System.exit(0);
+                    stop();
+                    break;
                 }
 
-
-                handleRequest(receivedMessage, output);  // Call handleRequest here
+                serverLogic.handleRequest(receivedMessage, output);  // Call handleRequest here
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                socket.close();
+                clientSocket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void handleRequest(String request, DataOutputStream output) throws IOException {
-        String[] parts = request.split(" ", 3);
-        String command = parts[0];
-
-        if ("exit".equals(command)) {
-            sendResponse(output, "200");
-            stop();
-            System.exit(0);
-        } else {
-            String fileName = parts[1];
-            Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
-
-            switch (command) {
-                case "GET":
-                    if (Files.exists(filePath)) {
-                        sendResponse(output, "200 " + new String(Files.readAllBytes(filePath)));
-                    } else {
-                        sendResponse(output, "404");
-                    }
-                    break;
-                case "PUT":
-                    Files.write(filePath, parts[2].getBytes());
-                    sendResponse(output, "200");
-                    break;
-                case "DELETE":
-                    if (Files.exists(filePath)) {
-                        Files.delete(filePath);
-                        sendResponse(output, "200");
-                    } else {
-                        sendResponse(output, "404");
-                    }
-                    break;
-                default:
-                    sendResponse(output, "400");
-            }
-        }
-    }
-
-    public void sendResponse(DataOutputStream output, String response) throws IOException {
-        output.writeUTF(response);
-        output.flush();
-    }
-
     public void stop() {
         running = false;
         try {
-            if (serverSocket != null && !serverSocket.isClosed()) {
-                serverSocket.close();
-            }
+            serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

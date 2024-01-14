@@ -1,17 +1,5 @@
 type: edu
 files:
-  - name: src/server/Main.java
-    visible: true
-    text: |-
-      package server;
-      
-      public class Main {
-      
-          public static void main(String[] args) {
-              System.out.println("Hello, world!");
-          }
-      }
-    learner_created: false
   - name: test/FileServerTest.java
     visible: false
     text: |+
@@ -316,64 +304,30 @@ files:
           }
       }
     learner_created: true
+  - name: src/Application.java
+    visible: true
+    learner_created: true
+  - name: src/server/ServerLogic.java
+    visible: true
+    learner_created: true
+  - name: src/client/ClientLogic.java
+    visible: true
+    learner_created: true
   - name: src/client/Main.java
     visible: true
-    text: |
-      package client;
-      
-      public class Main {
-          public static void main(String[] args) {
-              Client client = new Client("127.0.0.1", 23456);
-              client.start();
-          }
-      }
+    learner_created: true
+  - name: src/server/data/123.txt
+    visible: true
+    learner_created: true
+  - name: src/server/Main.java
+    visible: true
     learner_created: true
   - name: src/server/Server.java
-    visible: true
-    text: |
-      package server;
-      
-      import java.io.DataInputStream;
-      import java.io.DataOutputStream;
-      import java.io.IOException;
-      import java.net.InetAddress;
-      import java.net.ServerSocket;
-      import java.net.Socket;
-      public class Server {
-          private String address;
-          private int port;
-      
-          public  Server(String adress, int port) {
-              this.address = adress;
-              this.port = port;
-          }
-      
-          public void start() {
-              try (ServerSocket server = new ServerSocket(port, 50, InetAddress.getByName(address))) {
-                  System.out.println("Server started!");
-      
-                  try (Socket socket = server.accept();
-                       DataInputStream input = new DataInputStream(socket.getInputStream());
-                       DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
-      
-                      String receivedMessage = input.readUTF();
-                      System.out.println("Received: " + receivedMessage);
-                      String responseMessage = "All files were sent!";
-                      output.writeUTF(responseMessage);
-                      System.out.println("Sent: " + responseMessage);
-                  }
-              } catch (IOException e) {
-                  e.printStackTrace();
-              }
-          }
-      }
-    learner_created: true
-  - name: src/Application.java
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5427#comment
 status: Failed
 feedback:
   message: Execution failed
-  time: "Tue, 09 Jan 2024 20:31:15 UTC"
+  time: "Sun, 14 Jan 2024 14:40:56 UTC"
 record: -1

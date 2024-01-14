@@ -1,8 +1,8 @@
 type: choice
 is_multiple_choice: true
 options:
-  - text: "If a lambda expression has only one parameter, parentheses () are not mandatory."
   - text: A lambda expression always has parameters.
+  - text: "If a lambda expression has only one parameter, parentheses () are not mandatory."
   - text: A lambda expression should always return a value.
   - text: A lambda expression can contain multiple statements within the body.
 files:
