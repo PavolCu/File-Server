@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.414s</div>
+<div class="counter">1.012s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,7 +81,7 @@
 <span class="code">
 <pre>java.lang.AssertionError: Wrong answer in test #1
 
-The server should stop after a client sends 'exit'!
+Can't find just saved file in the /server/data folder!
 
 Please find below the output of your program during this failed test.
 Note that the '&gt;' character indicates the beginning of the input line.
@@ -89,7 +89,6 @@ Note that the '&gt;' character indicates the beginning of the input line.
 ---
 
 stdout:
-Server started!
 Client started!
 Sent: Give me everything you have!
 Received: Give me everything you have!
@@ -98,17 +97,94 @@ Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
 &gt; exit
 Received: exit  
 The request was sent.
-Server started!
+Client started!
+Sent: Give me everything you have!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+&gt; 2
+Enter filename:
+&gt; test_purpose_SGL1X11CS.txt
+Enter file content:
+&gt; 15M4GIKKUE0FKNG6
+The request was sent.
+Failed to get a response from the server.
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
 
 stderr:
 Exception in thread &quot;Thread-3&quot; org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
 	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
 	at java.base/java.lang.Runtime.exit(Runtime.java:113)
 	at java.base/java.lang.System.exit(System.java:1860)
-	at server.Server.handleRequest(Server.java:89)
-	at server.Server.handleClient(Server.java:69)
-	at server.Server.lambda$listen$0(Server.java:44)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+	at server.ServerLogic.handleRequest(ServerLogic.java:94)
+	at server.Server.handleClient(Server.java:55)
+	at server.Server.runServer(Server.java:32)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+	at java.base/sun.nio.ch.Net.bind(Net.java:544)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:648)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:388)
+	at java.base/java.net.ServerSocket.&lt;init&gt;(ServerSocket.java:274)
+	at java.base/java.net.ServerSocket.&lt;init&gt;(ServerSocket.java:167)
+	at server.Server.&lt;init&gt;(Server.java:16)
+	at server.Main.main(Main.java:5)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:961)
+	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:334)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:583)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:558)
+	at client.Client.start(Client.java:34)
+	at client.Main.main(Main.java:11)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Exception in thread &quot;Thread-4&quot; java.lang.NullPointerException: Cannot invoke &quot;java.net.ServerSocket.accept()&quot; because &quot;this.serverSocket&quot; is null
+	at server.Server.runServer(Server.java:31)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.SocketException: Broken pipe
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:425)
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:445)
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:831)
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1035)
+	at java.base/java.io.DataOutputStream.write(DataOutputStream.java:112)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:404)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:333)
+	at client.Client.sendRequest(Client.java:51)
+	at client.Main.main(Main.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -171,7 +247,7 @@ Exception in thread &quot;Thread-3&quot; org.hyperskill.hstest.dynamic.security.
 </thead>
 <tr>
 <td class="failures">start</td>
-<td class="failures">0.414s</td>
+<td class="failures">1.012s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -181,7 +257,6 @@ Exception in thread &quot;Thread-3&quot; org.hyperskill.hstest.dynamic.security.
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-Server started!
 Client started!
 Sent: Give me everything you have!
 Received: Give me everything you have!
@@ -190,7 +265,17 @@ Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
 &gt; exit
 Received: exit  
 The request was sent.
-Server started!
+Client started!
+Sent: Give me everything you have!
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
+&gt; 2
+Enter filename:
+&gt; test_purpose_SGL1X11CS.txt
+Enter file content:
+&gt; 15M4GIKKUE0FKNG6
+The request was sent.
+Failed to get a response from the server.
+Enter action (1 - get a file, 2 - create a file, 3 - delete a file):
 </pre>
 </span>
 </div>
@@ -201,10 +286,77 @@ Server started!
 	at org.hyperskill.hstest.dynamic.security.TestingSecurityManager.checkExit(TestingSecurityManager.java:50)
 	at java.base/java.lang.Runtime.exit(Runtime.java:113)
 	at java.base/java.lang.System.exit(System.java:1860)
-	at server.Server.handleRequest(Server.java:89)
-	at server.Server.handleClient(Server.java:69)
-	at server.Server.lambda$listen$0(Server.java:44)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+	at server.ServerLogic.handleRequest(ServerLogic.java:94)
+	at server.Server.handleClient(Server.java:55)
+	at server.Server.runServer(Server.java:32)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+	at java.base/sun.nio.ch.Net.bind(Net.java:544)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:648)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:388)
+	at java.base/java.net.ServerSocket.&lt;init&gt;(ServerSocket.java:274)
+	at java.base/java.net.ServerSocket.&lt;init&gt;(ServerSocket.java:167)
+	at server.Server.&lt;init&gt;(Server.java:16)
+	at server.Main.main(Main.java:5)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:961)
+	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:334)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:583)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:558)
+	at client.Client.start(Client.java:34)
+	at client.Main.main(Main.java:11)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Exception in thread &quot;Thread-4&quot; java.lang.NullPointerException: Cannot invoke &quot;java.net.ServerSocket.accept()&quot; because &quot;this.serverSocket&quot; is null
+	at server.Server.runServer(Server.java:31)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.net.SocketException: Broken pipe
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:425)
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:445)
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:831)
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1035)
+	at java.base/java.io.DataOutputStream.write(DataOutputStream.java:112)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:404)
+	at java.base/java.io.DataOutputStream.writeUTF(DataOutputStream.java:333)
+	at client.Client.sendRequest(Client.java:51)
+	at client.Main.main(Main.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 </pre>
 </span>
 </div>
@@ -216,7 +368,7 @@ Server started!
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at 9. 1. 2024, 21:31:14</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 14. 1. 2024, 15:40:55</p>
 </div>
 </div>
 </body>
