@@ -94,7 +94,9 @@ public class ServerLogic {
             System.exit(0);
         } else {
             String fileName = parts[1];
-            Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
+            String path = System.getProperty("/Users/cuninkapavol") + "IdeaProjects/File Server/File Server/task/src/server/data/";
+            //Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
+            Path filePath = Paths.get(path + fileName);
 
             switch (command) {
                 case "GET":
@@ -140,8 +142,8 @@ public class ServerLogic {
 
     public void runServerLogic(Scanner scanner) {
         Set<String> files = new HashSet<>();
-        String path = System.getProperty("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/");
-
+        String path = System.getProperty("/Users/cuninkapavol") + "IdeaProjects/File Server/File Server/task/src/server/data/";
+        //Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/data/" + fileName);
         while (true) {
             String[] input = scanner.nextLine().split(" ", 3);
             String command = input[0];

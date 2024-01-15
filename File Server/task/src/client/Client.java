@@ -25,7 +25,7 @@ public class Client {
             DataInputStream input = new DataInputStream(clientSocket.getInputStream());
             DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
-            System.out.println("Client started!");
+            //System.out.println("Client started!");
 
             String message = "Give me everything you have!";
             output.writeUTF(message);

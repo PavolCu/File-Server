@@ -1,9 +1,12 @@
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) {
         try {
-            String classpath = System.getProperty("java.class.path");
+            String classpath = System.getProperty("/Users/cuninkapavol") + "IdeaProjects/File Server/File Server/task/src/server/data/";
+
 
             // Start the server
             ProcessBuilder serverProcessBuilder = new ProcessBuilder("java", "-cp", classpath, "server.Main");

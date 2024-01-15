@@ -62,7 +62,7 @@ public class Main {
                             System.out.println("The response says that the file was successfully deleted!");
                         } else {
                             System.out.println("The response says that the file was not found!");
-                        }
+                         }
                         continue;
                     default:
                         break;
