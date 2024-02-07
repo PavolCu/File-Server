@@ -82,13 +82,7 @@ files:
           }
       }
     learner_created: false
-  - name: src/server/Server.java
-    visible: true
-    learner_created: true
   - name: src/Client/Client.java
-    visible: true
-    learner_created: true
-  - name: src/client/Client.java
     visible: true
     learner_created: true
   - name: src/client/Main.java
@@ -98,5 +92,5 @@ feedback_link: https://hyperskill.org/learn/step/5426#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: "Wed, 03 Jan 2024 21:39:45 UTC"
+  time: "Wed, 07 Feb 2024 09:35:52 UTC"
 record: 2

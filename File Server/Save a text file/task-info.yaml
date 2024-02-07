@@ -238,84 +238,6 @@ files:
       }
     
     learner_created: false
-  - name: src/client/Client.java
-    visible: true
-    text: |
-      package client;
-      
-      import java.io.DataInputStream;
-      import java.io.DataOutputStream;
-      import java.io.IOException;
-      import java.net.InetAddress;
-      import java.net.Socket;
-      
-      public class Client {
-          private String address;
-          private int port;
-      
-          public Client(String address, int port) {
-              this.address = address;
-              this.port = port;
-          }
-      
-          public void start() {
-              try (Socket socket = new Socket(InetAddress.getByName(address), port);
-              DataInputStream input = new DataInputStream(socket.getInputStream());
-              DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
-      
-                  System.out.println("Client started!");
-      
-                  String message = "Give me everything you have!";
-                  output.writeUTF(message);
-                  System.out.println("Sent: " + message);
-      
-                  String received = (input.readUTF());
-                  System.out.println("Received: " + received);
-              }catch (IOException e) {
-                  e.printStackTrace();
-              }
-          }
-      }
-    learner_created: true
-  - name: src/Client/Client.java
-    visible: true
-    text: |
-      package client;
-      
-      import java.io.DataInputStream;
-      import java.io.DataOutputStream;
-      import java.io.IOException;
-      import java.net.InetAddress;
-      import java.net.Socket;
-      
-      public class Client {
-          private String address;
-          private int port;
-      
-          public Client(String address, int port) {
-              this.address = address;
-              this.port = port;
-          }
-      
-          public void start() {
-              try (Socket socket = new Socket(InetAddress.getByName(address), port);
-              DataInputStream input = new DataInputStream(socket.getInputStream());
-              DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
-      
-                  System.out.println("Client started!");
-      
-                  String message = "Give me everything you have!";
-                  output.writeUTF(message);
-                  System.out.println("Sent: " + message);
-      
-                  String received = (input.readUTF());
-                  System.out.println("Received: " + received);
-              }catch (IOException e) {
-                  e.printStackTrace();
-              }
-          }
-      }
-    learner_created: true
   - name: src/client/Main.java
     visible: true
     text: |
@@ -328,18 +250,6 @@ files:
           }
       }
     learner_created: true
-  - name: src/Application.java
-    visible: true
-    learner_created: true
-  - name: src/server/Server.java
-    visible: true
-    learner_created: true
-  - name: src/server/ServerLogic.java
-    visible: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5427#comment
 status: Failed
-feedback:
-  message: Execution failed
-  time: "Mon, 15 Jan 2024 11:19:10 UTC"
-record: -1
+record: 3
