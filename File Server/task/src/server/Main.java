@@ -40,7 +40,7 @@ public class Main {
                         break;
                     }
 
-                    Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data" + fileName);
+                    Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
                     if (action.equals("2")) {
                         if (Files.exists(filePath)) {
                             output.writeUTF("403");

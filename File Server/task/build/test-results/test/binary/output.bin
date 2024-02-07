@@ -2,7 +2,15 @@
 Start test 1[0m
 Server started!
 Client started!
-#Sent: Give me everything you have!
-'Received: Give me everything you have!
-Sent: All files were sent!
-Received: All files were sent!
+FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
+> exit
+The request was sent.
+Server started!
+Client started!
+FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
+> 2
+Enter file name:
+> test_purpose_1DWCO6.txt
+Enter the content of the file:
+> JGW4WAUN4G1I
+-The response says that the file was created!
