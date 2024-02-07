@@ -34,7 +34,7 @@ public class Main {
                 output.writeUTF(action);
                 socket.close();
                 //System.out.println("Disconnected from the server and terminated.");
-                return;
+                System.exit(0);
             }
 
             System.out.println("Enter file name:");

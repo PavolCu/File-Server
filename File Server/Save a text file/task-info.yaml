@@ -250,19 +250,12 @@ files:
           }
       }
     learner_created: true
-  - name: src/server/Data/123.txt
-    visible: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5427#comment
 status: Failed
 feedback:
-  message: "Wrong answer in test #1\n\nCan&#39;t find just saved file in the /server/data\
-    \ folder!\n\nPlease find below the output of your program during this failed test.\n\
-    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.\n\
-    \n---\n\nServer started!\nClient started!\nEnter action (1 - get a file, 2 - create\
-    \ a file, 3 - delete a file): \n&gt; exit\nThe request was sent.\nServer started!\n\
-    Client started!\nEnter action (1 - get a file, 2 - create a file, 3 - delete a\
-    \ file): \n&gt; 2\nEnter file name:\n&gt; test_purpose_1DWCO6.txt\nEnter the content\
-    \ of the file:\n&gt; JGW4WAUN4G1I\nThe response says that the file was created!"
-  time: "Wed, 07 Feb 2024 16:55:15 UTC"
+  message: |-
+    Exception in test #1
+
+    java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+  time: "Wed, 07 Feb 2024 17:22:08 UTC"
 record: 3

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.495s</div>
+<div class="counter">0.899s</div>
 <p>duration</p>
 </div>
 </td>
@@ -69,6 +69,9 @@
 <li>
 <a href="#tab2">Standard output</a>
 </li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
@@ -76,29 +79,47 @@
 <a name="start"></a>
 <h3 class="failures">start</h3>
 <span class="code">
-<pre>java.lang.AssertionError: Wrong answer in test #1
+<pre>java.lang.AssertionError: Exception in test #1
 
-Can't find just saved file in the /server/data folder!
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at server.Main.main(Main.java:36)
 
 Please find below the output of your program during this failed test.
 Note that the '&gt;' character indicates the beginning of the input line.
 
 ---
 
+stdout:
 Server started!
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 &gt; exit
 The request was sent.
-Server started!
-Client started!
-Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
-&gt; 2
-Enter file name:
-&gt; test_purpose_1DWCO6.txt
-Enter the content of the file:
-&gt; JGW4WAUN4G1I
-The response says that the file was created!
+Server started
+
+stderr:
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/java.net.Socket.&lt;init&gt;(Socket.java:507)
+	at java.base/java.net.Socket.&lt;init&gt;(Socket.java:319)
+	at client.Main.main(Main.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -161,7 +182,7 @@ The response says that the file was created!
 </thead>
 <tr>
 <td class="failures">start</td>
-<td class="failures">0.495s</td>
+<td class="failures">0.899s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -176,15 +197,34 @@ Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 &gt; exit
 The request was sent.
-Server started!
-Client started!
-Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
-&gt; 2
-Enter file name:
-&gt; test_purpose_1DWCO6.txt
-Enter the content of the file:
-&gt; JGW4WAUN4G1I
-The response says that the file was created!
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/java.net.Socket.&lt;init&gt;(Socket.java:507)
+	at java.base/java.net.Socket.&lt;init&gt;(Socket.java:319)
+	at client.Main.main(Main.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160)
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 </pre>
 </span>
 </div>
@@ -196,7 +236,7 @@ The response says that the file was created!
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at 7. 2. 2024, 17:55:15</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 7. 2. 2024, 18:22:08</p>
 </div>
 </div>
 </body>
