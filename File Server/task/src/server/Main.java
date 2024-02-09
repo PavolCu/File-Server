@@ -36,9 +36,18 @@ public class Main {
                     String fileName = requestParts[1];
                     String fileContent = requestParts[2];
 
+                    if (requestParts.length > 1) {
+                        fileName = requestParts[1];
+                        if (requestParts.length > 2) {
+                            fileContent = requestParts[2];
+                        }
+                    }
+
                     if (action.equals("exit")) {
                         break;
                     }
+                    //String fileName = requestParts.length > 1 ? requestParts[1] : "";
+                   // String fileContent = requestParts.length > 2 ? requestParts[2] : "";
 
                     Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
                     if (action.equals("2")) {

@@ -34,12 +34,13 @@ public class Main {
                 output.writeUTF(action);
                 socket.close();
                 //System.out.println("Disconnected from the server and terminated.");
-                System.exit(0);
+                return;
             }
 
             System.out.println("Enter file name:");
             fileName = scanner.nextLine();
             if (action.equals("2")) {
+                System.out.println("The request was sent.");
                 System.out.println("Enter the content of the file:");
                 fileContent = scanner.nextLine();
             }
@@ -74,7 +75,7 @@ public class Main {
                     System.out.println("The response says that the file was not found!");
                 }
             }
-            //socket.close();
+            socket.close();
             //System.out.println("Disconnected from the server and terminated.");
         } catch (IOException e) {
             e.printStackTrace();
