@@ -51,7 +51,6 @@ public class Main {
                 System.out.println("The request was sent.");
                 output.writeUTF(action);
                 socket.close();
-                //System.out.println("Disconnected from the server and terminated.");
                 return;
             }
 
@@ -94,7 +93,6 @@ public class Main {
                 }
             }
             socket.close();
-            //System.out.println("Disconnected from the server and terminated.");
         } catch (IOException e) {
             e.printStackTrace();
         }

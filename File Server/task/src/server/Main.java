@@ -45,9 +45,6 @@ public class Main {
                     if (action.equals("exit")) {
                         break;
                     }
-                    //String fileName = requestParts.length > 1 ? requestParts[1] : "";
-                    // String fileContent = requestParts.length > 2 ? requestParts[2] : "";
-
                     Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
                     if (action.equals("PUT")) {
                         if (Files.exists(filePath)) {
