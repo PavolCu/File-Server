@@ -36,12 +36,12 @@ public class Main {
                     String fileName = requestParts[1];
                     String fileContent = requestParts[2];
 
-                    if (requestParts.length > 1) {
+                    /*if (requestParts.length > 1) {
                         fileName = requestParts[1];
                         if (requestParts.length > 2) {
                             fileContent = requestParts[2];
                         }
-                    }
+                    }*/
 
                     if (action.equals("exit")) {
                         break;
@@ -50,7 +50,7 @@ public class Main {
                    // String fileContent = requestParts.length > 2 ? requestParts[2] : "";
 
                     Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
-                    if (action.equals("2")) {
+                    if (action.equals("PUT")) {
                         if (Files.exists(filePath)) {
                             output.writeUTF("403");
                         } else {
@@ -61,14 +61,14 @@ public class Main {
                                 output.writeUTF("403");
                             }
                         }
-                    } else if (action.equals("1")) {
+                    } else if (action.equals("GET")) {
                         if (Files.exists(filePath)) {
                             String content = new String(Files.readAllBytes(filePath));
                             output.writeUTF("200 " + content);
                         } else {
                             output.writeUTF("404");
                         }
-                    } else if (action.equals("3")) {
+                    } else if (action.equals("DELETE")) {
                         if (Files.exists(filePath)) {
                             Files.delete(filePath);
                             output.writeUTF("200");

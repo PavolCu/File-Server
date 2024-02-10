@@ -253,18 +253,6 @@ files:
   - name: src/server/Data/123.txt
     visible: true
     learner_created: true
-  - name: src/server/Data/jkl.txt
-    visible: true
-    learner_created: true
-  - name: src/server/Data/jdkfl.txt
-    visible: true
-    learner_created: true
-  - name: src/server/Data/akoadifj.txt
-    visible: true
-    learner_created: true
-  - name: src/server/Data/jdfojoijo.txt
-    visible: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5427#comment
 status: Failed
 feedback:

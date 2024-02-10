@@ -24,7 +24,25 @@ public class Main {
             System.out.println("Client started!");
 
             System.out.println("Enter action (1 - get a file, 2 - create a file, 3 - delete a file): ");
-            String action = scanner.nextLine();
+            String actionInput = scanner.nextLine();
+            String action = "";
+
+            if (actionInput.equalsIgnoreCase("exit")) {
+                action = "exit";
+            } else {
+                try {
+                    int actionNumber = Integer.parseInt(actionInput);
+                    switch (actionNumber) {
+                        case 1 -> action = "GET";
+                        case 2 -> action = "PUT";
+                        case 3 -> action = "DELETE";
+                        default -> System.out.println("Invalid action. Please enter 1, 2, or 3.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter 1, 2, 3 or 'exit'.");
+                }
+            }
+
 
             String fileName = "";
             String fileContent = "";
@@ -37,11 +55,11 @@ public class Main {
                 return;
             }
 
-            System.out.println("Enter file name:");
+            System.out.println("Enter filename:");
             fileName = scanner.nextLine();
-            if (action.equals("2")) {
+            if (action.equals("PUT")) {
                 System.out.println("The request was sent.");
-                System.out.println("Enter the content of the file:");
+                System.out.println("Enter file content:");
                 fileContent = scanner.nextLine();
             }
 
@@ -50,7 +68,7 @@ public class Main {
             output.writeUTF(requestToServer);
 
             String responseFromServer = input.readUTF();
-            if (action.equals("2")) {
+            if (action.equals("PUT")) {
                 if (responseFromServer.equals("200")) {
                     System.out.println("The request was sent.");
                     System.out.println("The response says that the file was created!");
@@ -58,7 +76,7 @@ public class Main {
                     System.out.println("The request was sent.");
                     System.out.println("The response says that creating the file was forbidden!");
                 }
-            } else if (action.equals("1")) {
+            } else if (action.equals("GET")) {
                 if (responseFromServer.startsWith("200 ")) {
                     System.out.println("The request was sent.");
                     System.out.println("The content of the file is: " + responseFromServer.substring(4));
@@ -66,7 +84,7 @@ public class Main {
                     System.out.println("The request was sent.");
                     System.out.println("The response says that the file was not found!");
                 }
-            } else if (action.equals("3")) {
+            } else if (action.equals("DELETE")) {
                 if (responseFromServer.equals("200")) {
                     System.out.println("The request was sent.");
                     System.out.println("The response says that the file was successfully deleted!");
