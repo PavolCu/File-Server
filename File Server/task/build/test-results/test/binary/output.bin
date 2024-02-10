@@ -9,49 +9,49 @@
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 2
-Enter file name:
-> test_purpose_72D1ZH.txt
+Enter filename:
+> test_purpose_K1DD9.txt
 The request was sent.
-Enter the content of the file:
-> SQE1U9ZIN0G5L
+Enter file content:
+> G42V7DXE5EH07L
 The request was sent.
 -The response says that the file was created!
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 2
-Enter file name:
-> test_purpose_72D1ZH.txt
+Enter filename:
+> test_purpose_K1DD9.txt
 The request was sent.
-Enter the content of the file:
-> SQE1U9ZIN0G5L
+Enter file content:
+> G42V7DXE5EH07L
 The request was sent.
 8The response says that creating the file was forbidden!
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 1
-Enter file name:
-> test_purpose_72D1ZH.txt
+Enter filename:
+> test_purpose_K1DD9.txt
 The request was sent.
-*The content of the file is: SQE1U9ZIN0G5L
++The content of the file is: G42V7DXE5EH07L
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 1
-Enter file name:
-> test_purpose_S24GO.txt
+Enter filename:
+> test_purpose_OOP2T.txt
 The request was sent.
 /The response says that the file was not found!
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 3
-Enter file name:
-> test_purpose_IPXO34M9C.txt
+Enter filename:
+> test_purpose_NKZCWB3.txt
 The request was sent.
 /The response says that the file was not found!
 Client started!
 FEnter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 3
-Enter file name:
-> test_purpose_72D1ZH.txt
+Enter filename:
+> test_purpose_K1DD9.txt
 The request was sent.
 :The response says that the file was successfully deleted!
 Client started!

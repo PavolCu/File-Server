@@ -240,26 +240,10 @@ files:
     learner_created: false
   - name: src/client/Main.java
     visible: true
-    text: |
-      package client;
-      
-      public class Main {
-          public static void main(String[] args) {
-              Client client = new Client("127.0.0.1", 23456);
-              client.start();
-          }
-      }
-    learner_created: true
-  - name: src/server/Data/123.txt
-    visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5427#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Invalid test class &#39;FileNameGenerator&#39;:
-      1. The class FileNameGenerator is not public.
-      2. Test class should have exactly one public constructor
-      3. No runnable methods
-  time: "Fri, 09 Feb 2024 13:43:58 UTC"
+  message: Congratulations!
+  time: "Sat, 10 Feb 2024 19:05:14 UTC"
 record: 3

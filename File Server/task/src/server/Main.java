@@ -33,21 +33,20 @@ public class Main {
                     String requestFromClient = input.readUTF();
                     String[] requestParts = requestFromClient.split(" ", 3);
                     String action = requestParts[0];
-                    String fileName = requestParts[1];
-                    String fileContent = requestParts[2];
-
-                    /*if (requestParts.length > 1) {
+                    String fileName = "";
+                    if (requestParts.length > 1) {
                         fileName = requestParts[1];
-                        if (requestParts.length > 2) {
-                            fileContent = requestParts[2];
-                        }
-                    }*/
+                    }
+                    String fileContent = "";
+                    if (requestParts.length > 2) {
+                        fileContent = requestParts[2];
+                    }
 
                     if (action.equals("exit")) {
                         break;
                     }
                     //String fileName = requestParts.length > 1 ? requestParts[1] : "";
-                   // String fileContent = requestParts.length > 2 ? requestParts[2] : "";
+                    // String fileContent = requestParts.length > 2 ? requestParts[2] : "";
 
                     Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
                     if (action.equals("PUT")) {
