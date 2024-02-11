@@ -11,3 +11,4 @@ content:
   - Thread management
   - Executors
   - ThreadLocal
+  - Serialization basics

@@ -1,0 +1,13 @@
+content:
+  - Theory
+  - Default serialization
+  - Methods of Serializable
+  - The missed field
+  - Exclude modifier
+  - Prevent Serialization of a field
+  - Making a class serializable
+  - Modifiers for the version field
+  - Preventing a field from serialization
+  - Container with transient fields
+  - Play with streams
+  - Serializable user

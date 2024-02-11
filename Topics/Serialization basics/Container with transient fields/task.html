@@ -1,0 +1,40 @@
+<h2>Container with transient fields</h2>
+<div class="step-text">
+<p></p>
+<p>Here is a declaration of the <code class="language-java">Container</code> class.</p>
+<pre><code class="language-java">class Container implements Serializable {
+    private static final long serialVersionUID = 5L;
+
+    private transient String name;
+    private transient long value;
+
+    Container(String name, long value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getValue() {
+        return value;
+    }
+}</code></pre>
+<p>What is the result of the following code execution?</p>
+<pre><code class="language-java">Container container = new Container("one", 1);
+String fileName = "container.data";
+
+FileOutputStream fos = new FileOutputStream(fileName);
+ObjectOutputStream oos = new ObjectOutputStream(fos);
+oos.writeObject(container);
+oos.close();
+
+FileInputStream fis = new FileInputStream(fileName);
+BufferedInputStream bis = new BufferedInputStream(fis);
+ObjectInputStream ois = new ObjectInputStream(bis);
+Container obj = (Container) ois.readObject();
+ois.close();
+
+System.out.println(obj.getName() + " " + obj.getValue());</code></pre>
+</div>
