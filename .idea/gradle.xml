@@ -52,8 +52,10 @@
             <option value="$PROJECT_DIR$/Topics/Custom threads/Theory" />
             <option value="$PROJECT_DIR$/Topics/Custom threads/When will a thread start performing a task" />
             <option value="$PROJECT_DIR$/Topics/Custom threads/Writing a thread for printing numbers" />
+            <option value="$PROJECT_DIR$/Topics/Executors/Asynchronous email sending" />
             <option value="$PROJECT_DIR$/Topics/Executors/Check whether a number is prime" />
             <option value="$PROJECT_DIR$/Topics/Executors/Executor types" />
+            <option value="$PROJECT_DIR$/Topics/Executors/Messaging" />
             <option value="$PROJECT_DIR$/Topics/Executors/The order of lines in output" />
             <option value="$PROJECT_DIR$/Topics/Executors/Theory" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Apply function to all elements" />
@@ -103,6 +105,8 @@
             <option value="$PROJECT_DIR$/Topics/Thread management/Sleep" />
             <option value="$PROJECT_DIR$/Topics/Thread management/Theory" />
             <option value="$PROJECT_DIR$/Topics/Thread management/VeganPizza" />
+            <option value="$PROJECT_DIR$/Topics/ThreadLocal/Finish a method" />
+            <option value="$PROJECT_DIR$/Topics/ThreadLocal/Theory" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Counting threads" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Getting a current thread" />
             <option value="$PROJECT_DIR$/Topics/Threads as objects/Getting current thread info" />
