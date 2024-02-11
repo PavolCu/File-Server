@@ -52,6 +52,10 @@
             <option value="$PROJECT_DIR$/Topics/Custom threads/Theory" />
             <option value="$PROJECT_DIR$/Topics/Custom threads/When will a thread start performing a task" />
             <option value="$PROJECT_DIR$/Topics/Custom threads/Writing a thread for printing numbers" />
+            <option value="$PROJECT_DIR$/Topics/Executors/Check whether a number is prime" />
+            <option value="$PROJECT_DIR$/Topics/Executors/Executor types" />
+            <option value="$PROJECT_DIR$/Topics/Executors/The order of lines in output" />
+            <option value="$PROJECT_DIR$/Topics/Executors/Theory" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Apply function to all elements" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Expressions" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Higher-order functions" />

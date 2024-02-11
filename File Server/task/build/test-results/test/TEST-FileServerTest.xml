@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FileServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-10T19:05:13" hostname="macbook-pro-uzivatela-cuninka.home" time="0.862">
+<testsuite name="FileServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-10T19:14:05" hostname="macbook-pro-uzivatela-cuninka.home" time="1.085">
   <properties/>
-  <testcase name="start" classname="FileServerTest" time="0.862"/>
+  <testcase name="start" classname="FileServerTest" time="1.085"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
@@ -14,48 +14,48 @@ Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 2
 Enter filename:
-> test_purpose_K1DD9.txt
+> test_purpose_T2TAKUM.txt
 The request was sent.
 Enter file content:
-> G42V7DXE5EH07L
+> 1G3F7ZW6KJ4UL3JY8NQ
 The request was sent.
 The response says that the file was created!
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 2
 Enter filename:
-> test_purpose_K1DD9.txt
+> test_purpose_T2TAKUM.txt
 The request was sent.
 Enter file content:
-> G42V7DXE5EH07L
+> 1G3F7ZW6KJ4UL3JY8NQ
 The request was sent.
 The response says that creating the file was forbidden!
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 1
 Enter filename:
-> test_purpose_K1DD9.txt
+> test_purpose_T2TAKUM.txt
 The request was sent.
-The content of the file is: G42V7DXE5EH07L
+The content of the file is: 1G3F7ZW6KJ4UL3JY8NQ
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 1
 Enter filename:
-> test_purpose_OOP2T.txt
+> test_purpose_8YM1BLAGO.txt
 The request was sent.
 The response says that the file was not found!
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 3
 Enter filename:
-> test_purpose_NKZCWB3.txt
+> test_purpose_5VYH9EE0.txt
 The request was sent.
 The response says that the file was not found!
 Client started!
 Enter action (1 - get a file, 2 - create a file, 3 - delete a file): 
 > 3
 Enter filename:
-> test_purpose_K1DD9.txt
+> test_purpose_T2TAKUM.txt
 The request was sent.
 The response says that the file was successfully deleted!
 Client started!
