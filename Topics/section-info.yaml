@@ -12,3 +12,4 @@ content:
   - Executors
   - ThreadLocal
   - Serialization basics
+  - Custom serialization
