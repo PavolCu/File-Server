@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Max of two integers/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Lambda expressions/Max of two integers/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Lambda_expressions-Max_of_two_integers.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

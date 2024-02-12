@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/The List interface/Setting a new name/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/The List interface/Setting a new name/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-The_List_interface-Setting_a_new_name.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

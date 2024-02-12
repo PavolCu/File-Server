@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/When will a thread start performing a task/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/When will a thread start performing a task/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Custom_threads-When_will_a_thread_start_performing_a_task.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

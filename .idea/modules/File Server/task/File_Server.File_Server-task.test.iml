@@ -7,7 +7,7 @@
     <content url="file://$MODULE_DIR$/../../../../File Server/task/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../../File Server/task/test" isTestSource="true" />
     </content>
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.File_Server-task.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

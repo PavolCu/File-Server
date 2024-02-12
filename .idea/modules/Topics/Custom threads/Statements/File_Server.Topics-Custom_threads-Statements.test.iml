@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/Statements/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/Statements/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Custom_threads-Statements.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

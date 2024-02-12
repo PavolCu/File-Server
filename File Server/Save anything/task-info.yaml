@@ -517,6 +517,21 @@ files:
           }
       }
     learner_created: true
+  - name: src/server/Data/id_map.ser
+    visible: true
+    learner_created: true
+  - name: src/server/Data/836a2f63-d005-46db-957e-1ef21d161495
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Exception in test #1
+
+    A client can&#39;t connect to the server!
+    Make sure the server handles connections and doesn&#39;t stop after one client connected.
+
+    java.net.ConnectException: Connection refused
+  time: "Mon, 12 Feb 2024 18:58:33 UTC"
 record: -1

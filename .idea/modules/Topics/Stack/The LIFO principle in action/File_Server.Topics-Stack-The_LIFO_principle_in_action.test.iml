@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Stack/The LIFO principle in action/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Stack/The LIFO principle in action/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Stack-The_LIFO_principle_in_action.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

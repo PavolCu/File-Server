@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Serialization basics/Making a class serializable/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Serialization basics/Making a class serializable/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Serialization_basics-Making_a_class_serializable.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

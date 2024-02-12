@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/ThreadLocal/Finish a method/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/ThreadLocal/Finish a method/test" />
-    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-ThreadLocal-Finish_a_method.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />
