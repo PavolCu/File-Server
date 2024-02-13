@@ -520,18 +520,19 @@ files:
   - name: src/server/Data/id_map.ser
     visible: true
     learner_created: true
-  - name: src/server/Data/836a2f63-d005-46db-957e-1ef21d161495
+  - name: src/server/Data/9c845fe8-aaf9-440a-a25f-82d7efcc8038
     visible: true
+    learner_created: true
+  - name: src/client/Data/my_cat.jpg
+    visible: true
+    is_binary: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
 status: Failed
 feedback:
   message: |-
-    Exception in test #1
+    Exception in test #3
 
-    A client can&#39;t connect to the server!
-    Make sure the server handles connections and doesn&#39;t stop after one client connected.
-
-    java.net.ConnectException: Connection refused
-  time: "Mon, 12 Feb 2024 18:58:33 UTC"
+    java.net.SocketException: Broken pipe
+  time: "Tue, 13 Feb 2024 18:37:35 UTC"
 record: -1

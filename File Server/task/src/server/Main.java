@@ -77,7 +77,7 @@ public class Main {
             if (action.equals("PUT")) {
                 handlePutAction(output, fileName, fileContent);
             } else if (action.equals("GET")) {
-                handleGetAction(output, fileName);
+                handleGetAction(output, fileName, identifier);
             } else if (action.equals("DELETE")) {
                 handleDeleteAction(output, fileName);
             }
@@ -113,7 +113,23 @@ public class Main {
         }
     }
 
-    private static void handleGetAction(DataOutputStream output, String fileName) throws IOException {
+    private static void handleGetAction(DataOutputStream output, String identifier, String identifierType) throws IOException {
+        String fileName = "";
+        if (identifierType.equals("BY_NAME")) {
+            fileName = identifier;
+        } else if (identifierType.equals("BY_ID")) {
+            int id = Integer.parseInt(identifier);
+            if (idMap.containsKey(id)) {
+                fileName = idMap.get(id);
+            } else {
+                output.writeUTF("404");
+                return;
+            }
+        } else {
+            output.writeUTF("400");
+            return;
+        }
+
         Path filePath = Paths.get(DATA_DIR + fileName);
         if (Files.exists(filePath)) {
             byte[] content = Files.readAllBytes(filePath);
@@ -123,7 +139,6 @@ public class Main {
             output.writeUTF("404");
         }
     }
-
     private static void handleDeleteAction(DataOutputStream output, String fileName) throws IOException {
         Path filePath = Paths.get(DATA_DIR + fileName);
         if (Files.exists(filePath)) {

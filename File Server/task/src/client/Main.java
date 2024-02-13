@@ -58,6 +58,9 @@ public class Main {
 
                     System.out.println("Enter " + (identifierType.equals("BY_NAME") ? "name" : "id") + ": ");
                     identifier = scanner.nextLine();
+
+                    String requestToServer = action + " " + identifierType + " " + identifier;
+                    output.writeUTF(requestToServer); // send the request to the server
                 }
 
                 String fileName;
@@ -72,13 +75,12 @@ public class Main {
                         System.out.println("File " + fileName + " already exists. Overwriting.");
                     }
                     fileContent = Files.readAllBytes(filePath);
-                }
 
-                String requestToServer = action + " " + identifierType + " " + identifier;
-                output.writeUTF(requestToServer);
-                if (action.equals("PUT")) {
-                    output.writeInt(fileContent.length);
-                    output.write(fileContent);
+                    String requestToServer = action + " " + identifierType + " " + identifier;
+                    output.writeUTF(requestToServer);
+                    output.writeInt(fileContent.length); // send the length of the file
+                    output.write(fileContent); // send the file content
+
                 }
 
                 switch (action) {
@@ -94,14 +96,23 @@ public class Main {
                         isRunning = false;
                     }
                     case "GET" -> {
-                        int length = input.readInt();
-                        byte[] message = new byte[length];
-                        input.readFully(message, 0, message.length);
-                        System.out.println("The request was sent.");
-                        System.out.println("The file was downloaded! Specify a name for it: ");
-                        String saveFileName = scanner.nextLine();
-                        Files.write(Paths.get(DATA_DIR + saveFileName), message);
-                        System.out.println("File saved on the hard drive!");
+                        if (input.available() > 0) {
+                            String responseFromServer = input.readUTF();
+                            System.out.println("The request was sent.");
+                            if (responseFromServer.equals("200")) {
+                                int length = input.readInt();
+                                byte[] message = new byte[length];
+                                input.readFully(message, 0, message.length);
+                                System.out.println("The file was downloaded! Specify a name for it: ");
+                                String saveFileName = scanner.nextLine();
+                                Files.write(Paths.get(DATA_DIR + saveFileName), message);
+                                System.out.println("File saved on the hard drive!");
+                            } else {
+                                System.out.println("The response says that this file is not found!");
+                            }
+                        } else {
+                            System.out.println("The server did not send a response.");
+                        }
                         isRunning = false;
                     }
                     case "DELETE" -> {
