@@ -521,18 +521,6 @@ files:
     visible: true
     is_binary: true
     learner_created: true
-  - name: src/server/Data/id_map.ser
-    visible: true
-    learner_created: true
-  - name: src/server/Data/e8133255-9c92-497e-9c66-a9dca1790789
-    visible: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
-status: Failed
-feedback:
-  message: |-
-    Exception in test #3
-
-    java.net.SocketException: Broken pipe
-  time: "Tue, 13 Feb 2024 18:37:35 UTC"
+status: Unchecked
 record: -1
