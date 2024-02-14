@@ -13,15 +13,22 @@ public class Main {
     private static final String DATA_DIR = "/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/";
     private static final String ID_MAP_FILE = DATA_DIR + "id_map.ser";
     private static Map<Integer, String> idMap = new ConcurrentHashMap<>();
-    private static AtomicInteger nextId = new AtomicInteger(1);
+    private static final AtomicInteger nextId = new AtomicInteger(1);
     private static volatile boolean isRunning = true;
     private static ServerSocket serverSocket;
 
     public static void main(String[] args) {
         System.out.println("Server started!");
 
+
         // Load the id map from disk
         loadIdMap();
+
+        if (idMap.containsKey(2)) {
+            System.out.println("ID 2 exists on the server.");
+        } else {
+            System.out.println("ID 2 does not exist on the server.");
+        }
 
         try {
             serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(SERVER_ADDRESS));
@@ -74,12 +81,10 @@ public class Main {
                 fileName = idMap.get(Integer.parseInt(requestParts[2]));
             }
 
-            if (action.equals("PUT")) {
-                handlePutAction(output, fileName, fileContent);
-            } else if (action.equals("GET")) {
-                handleGetAction(output, fileName, identifier);
-            } else if (action.equals("DELETE")) {
-                handleDeleteAction(output, fileName);
+            switch (action) {
+                case "PUT" -> handlePutAction(output, fileName, fileContent);
+                case "GET" -> handleGetAction(output, fileName, identifier);
+                case "DELETE" -> handleDeleteAction(output, fileName);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -114,7 +119,7 @@ public class Main {
     }
 
     private static void handleGetAction(DataOutputStream output, String identifier, String identifierType) throws IOException {
-        String fileName = "";
+        String fileName;
         if (identifierType.equals("BY_NAME")) {
             fileName = identifier;
         } else if (identifierType.equals("BY_ID")) {
@@ -122,6 +127,7 @@ public class Main {
             if (idMap.containsKey(id)) {
                 fileName = idMap.get(id);
             } else {
+                System.out.println("ID not found in idMap" + id);
                 output.writeUTF("404");
                 return;
             }
@@ -136,6 +142,7 @@ public class Main {
             output.writeUTF("200 " + content.length);
             output.write(content);
         } else {
+            System.out.println("File not found: " + filePath);
             output.writeUTF("404");
         }
     }

@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Executors/Theory/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Executors/Theory/test" />
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Executors-Theory.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

@@ -517,15 +517,15 @@ files:
           }
       }
     learner_created: true
-  - name: src/server/Data/id_map.ser
-    visible: true
-    learner_created: true
-  - name: src/server/Data/9c845fe8-aaf9-440a-a25f-82d7efcc8038
-    visible: true
-    learner_created: true
   - name: src/client/Data/my_cat.jpg
     visible: true
     is_binary: true
+    learner_created: true
+  - name: src/server/Data/id_map.ser
+    visible: true
+    learner_created: true
+  - name: src/server/Data/e8133255-9c92-497e-9c66-a9dca1790789
+    visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
 status: Failed

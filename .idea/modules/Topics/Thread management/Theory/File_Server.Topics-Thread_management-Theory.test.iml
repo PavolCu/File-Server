@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Thread management/Theory/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Thread management/Theory/test" />
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Thread_management-Theory.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

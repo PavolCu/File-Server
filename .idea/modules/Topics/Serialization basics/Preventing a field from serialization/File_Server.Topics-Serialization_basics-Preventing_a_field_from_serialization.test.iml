@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Serialization basics/Preventing a field from serialization/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Serialization basics/Preventing a field from serialization/test" />
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Serialization_basics-Preventing_a_field_from_serialization.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

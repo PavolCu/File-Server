@@ -5,7 +5,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Executors/Check whether a number is prime/src/test" />
     <content url="file://$MODULE_DIR$/../../../../../Topics/Executors/Check whether a number is prime/test" />
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="File_Server.Topics-Executors-Check_whether_a_number_is_prime.main" />
     <orderEntry type="module" module-name="File_Server.util.main" />

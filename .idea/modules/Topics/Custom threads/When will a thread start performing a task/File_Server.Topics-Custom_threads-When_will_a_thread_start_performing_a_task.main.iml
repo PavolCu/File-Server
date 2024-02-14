@@ -6,7 +6,7 @@
     <content url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/When will a thread start performing a task/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../Topics/Custom threads/When will a thread start performing a task/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="corretto-17" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="corretto-20" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
