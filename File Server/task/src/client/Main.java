@@ -1,11 +1,9 @@
 package client;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.util.Scanner;
+import java.io.*;
+import java.net.*;
+import java.nio.file.*;
+import java.util.*;
 
 public class Main {
 
@@ -19,81 +17,87 @@ public class Main {
                 DataInputStream input = new DataInputStream(socket.getInputStream());
                 DataOutputStream output = new DataOutputStream(socket.getOutputStream());
                 Scanner scanner = new Scanner(System.in);
-        )
-        {
+        ) {
             System.out.println("Client started!");
 
-            System.out.println("Enter action (1 - get a file, 2 - create a file, 3 - delete a file): ");
-            String actionInput = scanner.nextLine();
-            String action = "";
+            while (true) {
+                System.out.println("Enter action (1 - get a file, 2 - create a file, 3 - delete a file, 4 - exit): ");
+                String actionInput = scanner.nextLine();
+                String action = "";
 
-            if (actionInput.equalsIgnoreCase("exit")) {
-                action = "exit";
-            } else {
-                try {
-                    int actionNumber = Integer.parseInt(actionInput);
-                    switch (actionNumber) {
-                        case 1 -> action = "GET";
-                        case 2 -> action = "PUT";
-                        case 3 -> action = "DELETE";
-                        default -> System.out.println("Invalid action. Please enter 1, 2, or 3.");
+                if (actionInput.equalsIgnoreCase("exit")) {
+                    action = "exit";
+                    output.writeUTF(action);
+                    break;
+                } else {
+                    try {
+                        int actionNumber = Integer.parseInt(actionInput);
+                        switch (actionNumber) {
+                            case 1 -> action = "GET";
+                            case 2 -> action = "PUT";
+                            case 3 -> action = "DELETE";
+                            default -> {
+                                System.out.println("Invalid action. Please enter 1, 2, 3 or 'exit'.");
+                                continue;
+                            }
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter 1, 2, 3 or 'exit'.");
+                        continue;
                     }
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter 1, 2, 3 or 'exit'.");
                 }
-            }
 
+                String identifierType = "";
+                String identifier = "";
+                String fileContent = "";
 
-            String fileName = "";
-            String fileContent = "";
+                if (action.equals("PUT")) {
+                    System.out.println("Enter filename:");
+                    identifier = scanner.nextLine();
+                    System.out.println("Enter name of the file to be saved on server:");
+                    String serverFileName = scanner.nextLine();
+                    Path filePath = Paths.get("../client/data/" + identifier);
+                    if (!Files.exists(filePath)) {
+                        System.out.println("File " + identifier + " does not exist. Creating a new file.");
+                        Files.createFile(filePath);
+                    }
+                    fileContent = new String(Files.readAllBytes(filePath));
+                    String requestToServer = action + " " + serverFileName + " " + fileContent;
+                    output.writeUTF(requestToServer);
+                }
 
-            if (action.equals("exit")) {
-                System.out.println("The request was sent.");
-                output.writeUTF(action);
+                String requestToServer = action + " " + identifierType + " " + identifier + " " + fileContent;
+                output.writeUTF(requestToServer);
+
+                if (action.equals("PUT")) {
+                    String responseFromServer = input.readUTF();
+                    if (responseFromServer.startsWith("200 ")) {
+                        System.out.println("The request was sent.");
+                        System.out.println("The response says that the file was created! The id is: " + responseFromServer.substring(4));
+                    } else {
+                        System.out.println("The request was sent.");
+                        System.out.println("The response says that creating the file was forbidden!");
+                    }
+                } else if (action.equals("GET")) {
+                    int length = input.readInt();
+                    byte[] message = new byte[length];
+                    input.readFully(message, 0, message.length);
+                    System.out.println("The request was sent.");
+                    System.out.println("The content of the file is: " + new String(message));
+                } else if (action.equals("DELETE")) {
+                    String responseFromServer = input.readUTF();
+                    if (responseFromServer.equals("200")) {
+                        System.out.println("The request was sent.");
+                        System.out.println("The response says that the file was successfully deleted!");
+                    } else {
+                        System.out.println("The request was sent.");
+                        System.out.println("The response says that the file was not found!");
+                    }
+                }
+
                 socket.close();
-                return;
             }
-
-            System.out.println("Enter filename:");
-            fileName = scanner.nextLine();
-            if (action.equals("PUT")) {
-                System.out.println("The request was sent.");
-                System.out.println("Enter file content:");
-                fileContent = scanner.nextLine();
-            }
-
-
-            String requestToServer = action + " " + fileName + " " + fileContent;
-            output.writeUTF(requestToServer);
-
-            String responseFromServer = input.readUTF();
-            if (action.equals("PUT")) {
-                if (responseFromServer.equals("200")) {
-                    System.out.println("The request was sent.");
-                    System.out.println("The response says that the file was created!");
-                } else {
-                    System.out.println("The request was sent.");
-                    System.out.println("The response says that creating the file was forbidden!");
-                }
-            } else if (action.equals("GET")) {
-                if (responseFromServer.startsWith("200 ")) {
-                    System.out.println("The request was sent.");
-                    System.out.println("The content of the file is: " + responseFromServer.substring(4));
-                } else {
-                    System.out.println("The request was sent.");
-                    System.out.println("The response says that the file was not found!");
-                }
-            } else if (action.equals("DELETE")) {
-                if (responseFromServer.equals("200")) {
-                    System.out.println("The request was sent.");
-                    System.out.println("The response says that the file was successfully deleted!");
-                } else {
-                    System.out.println("The request was sent.");
-                    System.out.println("The response says that the file was not found!");
-                }
-            }
-            socket.close();
-        } catch (IOException e) {
+        } catch(IOException e){
             e.printStackTrace();
         }
     }

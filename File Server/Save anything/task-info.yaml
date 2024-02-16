@@ -517,10 +517,6 @@ files:
           }
       }
     learner_created: true
-  - name: src/client/Data/my_cat.jpg
-    visible: true
-    is_binary: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
-status: Unchecked
+status: Failed
 record: -1
