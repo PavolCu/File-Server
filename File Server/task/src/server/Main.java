@@ -56,10 +56,14 @@ public class Main {
                 fileContent = requestParts[3];
             }
 
-            if (action.equals("exit")) {
-                socket.close();
-                executorService.shutdown();
-                return;
+            while (true) {
+                String clientRequest = input.readUTF();
+                if (clientRequest.equals("exit")) {
+                    break;
+                }
+                else {
+                    continue;
+                }
             }
 
             String fileName = identifierType.equals("BY_ID") ? fileMap.get(Integer.parseInt(identifier)) : identifier;

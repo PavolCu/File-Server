@@ -53,10 +53,9 @@ public class Main {
 
                 if (action.equals("PUT")) {
                     System.out.println("Enter filename:");
-                    identifier = scanner.nextLine();
-                    System.out.println("Enter name of the file to be saved on server:");
                     String serverFileName = scanner.nextLine();
-                    Path filePath = Paths.get("../client/data/" + identifier);
+                    identifier = serverFileName; // Assign the serverFileName to identifier
+                    Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/client/Data/" + identifier);
                     if (!Files.exists(filePath)) {
                         System.out.println("File " + identifier + " does not exist. Creating a new file.");
                         Files.createFile(filePath);
@@ -64,10 +63,10 @@ public class Main {
                     fileContent = new String(Files.readAllBytes(filePath));
                     String requestToServer = action + " " + serverFileName + " " + fileContent;
                     output.writeUTF(requestToServer);
+                } else {
+                    String requestToServer = action + " " + identifierType + " " + identifier + " " + fileContent;
+                    output.writeUTF(requestToServer);
                 }
-
-                String requestToServer = action + " " + identifierType + " " + identifier + " " + fileContent;
-                output.writeUTF(requestToServer);
 
                 if (action.equals("PUT")) {
                     String responseFromServer = input.readUTF();
