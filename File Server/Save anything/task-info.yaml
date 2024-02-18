@@ -527,6 +527,19 @@ files:
   - name: src/client/Data/123.txt
     visible: true
     learner_created: true
+  - name: src/client/Data/1234.txt
+    visible: true
+    learner_created: true
+  - name: src/client/Data/321.jpg
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/client/Data/666.txt
+    visible: true
+    learner_created: true
+  - name: src/client/Data/126.txt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/5428#comment
 status: Failed
 record: -1

@@ -3,8 +3,8 @@ package server;
 import java.io.*;
 import java.net.*;
 import java.nio.file.*;
+import java.util.UUID;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -12,18 +12,15 @@ public class Main {
     private static final int PORT = 23456;
     private static final ExecutorService executorService = Executors.newFixedThreadPool(10);
     private static final ConcurrentHashMap<Integer, String> fileMap = new ConcurrentHashMap<>();
-    private static final AtomicInteger currentId = new AtomicInteger(0);
 
     public static void main(String[] args) {
 
-        // Load the file map and current id from a file
+        // Load the file map from a file
         loadFileMap();
 
         System.out.println("Server started!");
 
-        try (
-                ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(SERVER_ADDRESS));
-        ) {
+        try (ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(SERVER_ADDRESS))) {
             while (true) {
                 Socket socket = serverSocket.accept();
                 executorService.submit(() -> handleClientRequest(socket));
@@ -32,72 +29,48 @@ public class Main {
             e.printStackTrace();
         }
 
-        // Save the file map and current id to a file
+        // Save the file map to a file
         saveFileMap();
     }
 
-
     private static void handleClientRequest(Socket socket) {
-        try (
-                DataInputStream input = new DataInputStream(socket.getInputStream());
-                DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-        ) {
-            String requestFromClient = input.readUTF();
-            String[] requestParts = requestFromClient.split(" ", 4);
-            String action = requestParts[0];
-            String identifierType = "";
-            String identifier = "";
-            if (requestParts.length > 1) {
-                identifierType = requestParts[1];
-                identifier = requestParts[2];
-            }
-            String fileContent = "";
-            if (requestParts.length > 3) {
-                fileContent = requestParts[3];
-            }
+        try (DataInputStream input = new DataInputStream(socket.getInputStream());
+             DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
 
-            while (true) {
-                String clientRequest = input.readUTF();
-                if (clientRequest.equals("exit")) {
-                    break;
-                }
-                else {
-                    continue;
-                }
-            }
-
-            String fileName = identifierType.equals("BY_ID") ? fileMap.get(Integer.parseInt(identifier)) : identifier;
+            String action = input.readUTF();
+            String fileName = input.readUTF();
             Path filePath = Paths.get("/Users/cuninkapavol/IdeaProjects/File Server/File Server/task/src/server/Data/" + fileName);
-            if (action.equals("PUT")) {
-                if (!Files.exists(filePath)) {
-                    try {
-                        Files.createDirectories(filePath.getParent()); // Create directories if they do not exist
-                        Files.write(filePath, fileContent.getBytes());
-                        int id = currentId.incrementAndGet();
-                        fileMap.put(id, fileName);
-                        output.writeUTF("200 " + id);
-                    } catch (IOException e) {
-                        output.writeUTF("403");
+
+            switch (action) {
+                case "PUT":
+                    if (fileName.isEmpty()) {
+                        fileName = UUID.randomUUID().toString();
                     }
-                } else {
-                    output.writeUTF("403");
-                }
-            } else if (action.equals("GET")) {
-                if (Files.exists(filePath)) {
-                    byte[] content = Files.readAllBytes(filePath);
-                    output.writeInt(content.length);
-                    output.write(content);
-                } else {
-                    output.writeUTF("404");
-                }
-            } else if (action.equals("DELETE")) {
-                if (Files.exists(filePath)) {
-                    Files.delete(filePath);
-                    fileMap.remove(Integer.parseInt(identifier));
-                    output.writeUTF("200");
-                } else {
-                    output.writeUTF("404");
-                }
+                    byte[] content = new byte[input.readInt()];
+                    input.readFully(content);
+                    Files.write(filePath, content);
+                    int id = fileMap.size() + 1;
+                    fileMap.put(id, fileName);
+                    output.writeUTF("200 " + id);
+                    break;
+                case "GET":
+                    if (Files.exists(filePath)) {
+                        byte[] fileContent = Files.readAllBytes(filePath);
+                        output.writeInt(fileContent.length);
+                        output.write(fileContent);
+                    } else {
+                        output.writeUTF("404");
+                    }
+                    break;
+                case "DELETE":
+                    if (Files.exists(filePath)) {
+                        Files.delete(filePath);
+                        fileMap.values().remove(fileName);
+                        output.writeUTF("200");
+                    } else {
+                        output.writeUTF("404");
+                    }
+                    break;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -105,25 +78,10 @@ public class Main {
     }
 
     private static void loadFileMap() {
-        File file = new File("fileMap.ser");
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-                try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-                    oos.writeObject(new ConcurrentHashMap<Integer, String>());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("fileMap.ser"))) {
             ConcurrentHashMap<Integer, String> loadedMap = (ConcurrentHashMap<Integer, String>) ois.readObject();
             fileMap.clear();
             fileMap.putAll(loadedMap);
-            currentId.set(fileMap.size()); // Use set method to change the value
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -136,5 +94,4 @@ public class Main {
             e.printStackTrace();
         }
     }
-
 }
